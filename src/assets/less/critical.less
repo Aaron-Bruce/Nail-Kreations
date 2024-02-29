@@ -5,350 +5,296 @@
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
-@media only screen and (min-width: 0em) {
-    #hero {
-        font-family: "Roboto", "Arial", sans-serif;
-        /* Centers button */
-        text-align: center;
-        /* changes on tablet */
-        padding: 0 (16/16rem);
-        padding-bottom: (100/16rem);
+@media only screen and (min-width: 0rem) {
+    #hero-929 {
+        padding: var(--sectionPadding);
+        /* 160px - 200px */
+        padding-top: clamp(10rem, 16vw, 12.5rem);
+        padding-bottom: 0;
         position: relative;
-        z-index: 1;
-        /* prevents overflow from the lines extending past the screen width */
-        overflow: hidden;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+            position: relative;
+        }
+
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+        }
+
+        .cs-title {
+            /* 39px - 61px */
+            font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.2em;
+            text-align: inherit;
+            max-width: (1096/16rem);
+            /* 8px - 16px */
+            margin: 0 0 clamp(0.5rem, 2vw, 1rem) 0;
+            color: var(--bodyTextColorWhite);
+            position: relative;
+        }
+
+        .cs-flex {
+            width: 100%;
+            /* removed at small desktop */
+            margin-bottom: (40/16rem);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: (40/16rem);
+        }
+
+        .cs-content-group {
+            width: 100%;
+            /* changes to 352px at small desktop */
+            max-width: (700/16rem);
+        }
+
+        .cs-text {
+            font-size: var(--bodyFontSize);
+            line-height: 1.5em;
+            text-align: inherit;
+            width: 100%;
+            max-width: (650/16rem);
+            margin: 0 auto (28/16rem) auto;
+            color: #f7f7f7;
+        }
+
+        .cs-button-solid {
+            font-size: (16/16rem);
+            /* 46px - 56px */
+            line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            color: #fff;
+            min-width: (150/16rem);
+            padding: 0 (32/16rem);
+            background-color: var(--primary);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            /* prevents padding from adding to the width */
+            box-sizing: border-box;
+
+            &:before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 0%;
+                background: #000;
+                opacity: 1;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                transition: width 0.3s;
+            }
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
+
+        .cs-hours-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            row-gap: (20/16rem);
+            column-gap: (24/16rem);
+        }
+
+        .cs-header {
+            /* 20px - 25px */
+            font-size: clamp(1.25rem, 2vw, 1.5625rem);
+            line-height: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            color: var(--bodyTextColorWhite);
+            display: block;
+        }
+
+        .cs-hours {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: (8/16rem);
+        }
+
+        .cs-day {
+            font-size: (16/16rem);
+            line-height: 1.2em;
+            font-weight: bold;
+            color: var(--primary);
+            display: block;
+        }
+
+        .cs-time {
+            font-size: (16/16rem);
+            line-height: 1.5em;
+            margin: 0;
+            color: #f7f7f7;
+            display: block;
+        }
+
+        .cs-picture-group {
+            position: relative;
+        }
+
+        .cs-tagline {
+            /* 52px - 62px */
+            font-size: clamp(3.25rem, 7vw, 3.875rem);
+            font-family: "Mr Dafoe", cursive;
+            line-height: 0.9em;
+            max-width: 5ch;
+            margin: 0 auto (-34/16rem);
+            color: var(--primary);
+            display: block;
+            transform: rotate(-14.36deg) translateX(-6.25rem);
+        }
 
         .cs-picture {
-            /* Background Image */
+            width: 100%;
+            height: auto;
+            max-height: (598/16rem);
+            display: flex;
+            align-items: flex-end;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .cs-background {
             width: 100%;
             height: 100%;
             display: block;
             position: absolute;
             top: 0;
             left: 0;
-            z-index: -2;
+            z-index: -1;
 
             &:before {
-                /* Black Color Overlay */
+                /* background color overlay */
                 content: "";
-                width: 100%;
-                height: 100%;
-                background: #000;
-                opacity: 0.7;
-                display: block;
                 position: absolute;
+                display: block;
+                height: 100%;
+                width: 100%;
+                background: #00433A;
                 top: 0;
                 left: 0;
                 z-index: 1;
-                /* prevents the cursor from interacting with it */
-                pointer-events: none;
             }
 
             img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
                 width: 100%;
-                height: 100%;
-                /* Makes image act like a background-image */
+                /* Makes img tag act as a background image */
                 object-fit: cover;
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-        }
-
-        .cs-container {
-            width: 100%;
-            max-width: (1280/16em);
-            margin: auto;
-            /* we put the padding top and bottom on the container instead of #Hero so the pseudo element lines go to the top and bottom of the section */
-            /* 144px - 280px - leaving extra space for the navigation */
-            /* changes on tablet */
-            padding: clamp(9em, 25.95vw, 17.5em) 0;
-            position: relative;
-
-            &:before {
-                /* Left Line */
-                content: "";
-                width: 1px;
-                height: 100%;
-                background: -moz-linear-gradient(
-                    top,
-                    rgba(250, 251, 252, 0.5) 0%,
-                    rgba(250, 251, 252, 0) 100%
-                ); /* FF3.6-15 */
-                background: -webkit-linear-gradient(
-                    top,
-                    rgba(250, 251, 252, 0.5) 0%,
-                    rgba(250, 251, 252, 0) 100%
-                ); /* Chrome10-25,Safari5.1-6 */
-                opacity: 1;
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-        }
-
-        .cs-flex-group {
-            width: 80vw;
-            /* 464px - 562px */
-            max-width: clamp(29em, 60vw, 35.125em);
-            margin: auto;
-            /* 60px - 220px */
-            margin-bottom: clamp(3.75em, 15.5vw, 13.75em);
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-
-        .cs-topper {
-            text-align: center;
-            margin-bottom: (16/16rem);
-            color: var(--primary);
-        }
-
-        .cs-title {
-            text-align: center;
-            width: 100%;
-            color: var(--bodyTextColorWhite);
-        }
-
-        .cs-text {
-            text-align: center;
-            /* 32px - 40px */
-            margin: 0 auto clamp(2rem, 4vw, 2.5rem) 0;
-            /* 40px - 48px */
-            margin-bottom: clamp(2.5rem, 4vw, 3rem);
-            color: var(--bodyTextColorWhite);
-        }
-
-        .cs-button-solid {
-            line-height: clamp(2.875em, 5.5vw, 3.5em);
-            height: initial;
-            margin-bottom: (16/16rem);
-        }
-
-        .cs-button-transparent {
-            font-size: (16/16rem);
-            font-weight: 700;
-            /* 46px - 56px */
-            line-height: clamp(2.875em, 5.5vw, 3.5em);
-            text-decoration: none;
-            width: (180/16rem);
-            /* 46px - 56px */
-            height: clamp(2.875em, 5.5vw, 3.5em);
-            margin: 0 (8/16rem);
-            box-sizing: border-box;
-            padding: 0;
-            color: #fff;
-            background-color: transparent;
-            border: 1px solid var(--bodyTextColorWhite);
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-
-            &:before {
-                content: "";
-                background: #000;
-                opacity: 1;
-                display: block;
-                position: absolute;
-                /* so it sits on top of the border */
-                top: -1px;
-                right: -1px;
-                bottom: -1px;
-                left: -1px;
-                z-index: -1;
-                /* this is what creates the grow affect on hover */
-                transform: scaleX(0);
-                transition: transform 0.3s;
-                transform-origin: left;
-            }
-
-            &:hover {
-                &:before {
-                    transform: scaleX(1);
-                }
-            }
-
-            .cs-img {
-                margin-right: (12/16rem);
-                display: block;
             }
         }
     }
 }
 
 /* Tablet - 768px */
-@media only screen and (min-width: 48em) {
-    #hero {
-        /* 32px - 40px */
-        padding: 0 clamp(2em, 5vw, 2.5em);
-
-        .cs-container {
-            padding: clamp(7em, 27.95vw, 17.5em) 0 clamp(9em, 30.95vw, 23.5em) 0;
-            &:after {
-                /* Right Line */
-                content: "";
-                width: 1px;
-                height: 100%;
-                background: -moz-linear-gradient(
-                    top,
-                    rgba(250, 251, 252, 0) 0%,
-                    rgba(250, 251, 252, 0.5) 100%
-                ); /* FF3.6-15 */
-                background: -webkit-linear-gradient(
-                    top,
-                    rgba(250, 251, 252, 0) 0%,
-                    rgba(250, 251, 252, 0.5) 100%
-                ); /* Chrome10-25,Safari5.1-6 */
-                opacity: 1;
-                display: block;
-                position: absolute;
-                top: 0;
-                right: 0;
-            }
-        }
-
-        .cs-button-solid {
-            margin-right: (20/16rem);
-            margin-bottom: 0;
+@media only screen and (min-width: 48rem) {
+    #hero-929 {
+        .cs-header {
+            text-align: left;
+            width: auto;
+            /* removed at small desktop */
+            max-width: 8ch;
         }
     }
 }
 
-/* Desktop Parallax Effect - 1300px */
-@media only screen and (min-width: 81.25em) {
-    #hero {
-        background: url("/assets/images/landing.jpg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        /* creates parallax effect on background image */
-        background-attachment: fixed;
-    }
-}
-
-/* Dark Mode */
-@media only screen and (min-width: 0em) {
-    body.dark-mode {
-        #hero {
-            .cs-background {
-                &:before {
-                    opacity: 0.8;
-                }
-            }
-        }
-    }
-}
-
-/*-- -------------------------- -->
-<---          Services          -->
-<--- -------------------------- -*/
-
-/* Mobile */
-@media only screen and (min-width: 0em) {
-    .services {
-        width: 90%;
-        max-width: (1320/16em);
-        margin: auto;
-        margin-top: calc(-167 / 16 * 1em);
-        margin-bottom: (50/16em);
-        padding: (50/16em) (20/16em);
-        background: #fff;
-        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
-        border-top: (6/16em) solid var(--primary);
-        border-radius: (5/16em);
-        position: relative;
-        z-index: 100;
-        .card {
-            width: 100%;
-            max-width: (357/16em);
-            margin: auto;
-            margin-bottom: (50/16em);
-            display: block;
-            &:last-of-type {
-                margin-bottom: 0;
-            }
-
-            picture {
-                width: (88/16em);
-                height: (88/16em);
-                margin: auto;
-                margin-bottom: (23/16em);
-                background: var(--primary);
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                img {
-                    width: (48/16em);
-                    height: (48/16em);
-                }
-            }
-            h2 {
-                font-size: (32/16em);
-                font-weight: 700;
-                line-height: (27/20em);
-                text-align: center;
-                margin-bottom: (13/20em);
-                color: #1a1a1a;
-            }
-            p {
-                line-height: (24/18em);
-                text-align: center;
-                width: 100%;
-                opacity: 0.7;
-            }
-        }
-    }
-}
-
-/* Inbetween */
-@media only screen and (min-width: 768px) {
-    .services {
-        font-size: ~"min(1.8vw, 1em)";
-        width: 98%;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-
-        .card {
-            max-width: (325/16em);
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #hero-929 {
+        .cs-flex {
             margin: 0;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            position: absolute;
+            /* 80px - 100px */
+            bottom: clamp(5rem, 8vw, 6.25rem);
+        }
+
+        .cs-content-group {
+            text-align: left;
+            width: 24vw;
+            max-width: (352/16rem);
+        }
+
+        .cs-hours-group {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .cs-header {
+            max-width: 100%;
+        }
+
+        .cs-picture-group {
+            margin-top: (-50/16rem);
+        }
+
+        .cs-tagline {
+            margin: 0;
+            position: absolute;
+            /* changes at large desktop */
+            left: (60/16rem);
+            /* 90px - 130px */
+            top: clamp(5.625rem, 10vw, 8.125rem);
         }
     }
 }
 
-/* Large Desktop */
-@media only screen and (min-width: 1300px) {
-    .services {
-        padding: (50/16em) (80/16em);
+/* Large Desktop 1300px */
+@media only screen and (min-width: 81.25rem) {
+    #hero-929 {
+        .cs-hours-group {
+            max-width: (320/16rem);
+            flex-direction: row;
+            justify-content: flex-start;
+        }
 
-        .card {
-            max-width: (357/16em);
+        .cs-header {
+            width: 100%;
+        }
+
+        .cs-tagline {
+            left: (26/16rem);
+            top: (130/16rem);
         }
     }
 }
 
-/* Dark mode */
-@media only screen and (min-width: 0em) {
-    body.dark-mode {
-        #services {
-            background: var(--medium);
-
-            picture {
-                background: var(--primaryDark);
-            }
-
-            h2 {
-                font-weight: bold;
-                color: #fff;
-            }
-        }
-    }
-}
+                                
+                                

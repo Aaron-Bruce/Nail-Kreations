@@ -3,298 +3,254 @@
 <---           Hero             -->
 <--- -------------------------- -*/
 /* Mobile - 360px */
-@media only screen and (min-width: 0em) {
-  #hero {
-    font-family: "Roboto", "Arial", sans-serif;
-    /* Centers button */
-    text-align: center;
-    /* changes on tablet */
-    padding: 0 1rem;
-    padding-bottom: 6.25rem;
-    position: relative;
-    z-index: 1;
-    /* prevents overflow from the lines extending past the screen width */
-    overflow: hidden;
-  }
-  #hero .cs-picture {
-    /* Background Image */
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -2;
-  }
-  #hero .cs-picture:before {
-    /* Black Color Overlay */
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: #000;
-    opacity: 0.7;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    /* prevents the cursor from interacting with it */
-    pointer-events: none;
-  }
-  #hero .cs-picture img {
-    width: 100%;
-    height: 100%;
-    /* Makes image act like a background-image */
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  #hero .cs-container {
-    width: 100%;
-    max-width: 80em;
-    margin: auto;
-    /* we put the padding top and bottom on the container instead of #Hero so the pseudo element lines go to the top and bottom of the section */
-    /* 144px - 280px - leaving extra space for the navigation */
-    /* changes on tablet */
-    padding: clamp(9em, 25.95vw, 17.5em) 0;
+@media only screen and (min-width: 0rem) {
+  #hero-929 {
+    padding: var(--sectionPadding);
+    /* 160px - 200px */
+    padding-top: clamp(10rem, 16vw, 12.5rem);
+    padding-bottom: 0;
     position: relative;
   }
-  #hero .cs-container:before {
-    /* Left Line */
-    content: "";
-    width: 1px;
-    height: 100%;
-    background: -moz-linear-gradient(top, rgba(250, 251, 252, 0.5) 0%, rgba(250, 251, 252, 0) 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(250, 251, 252, 0.5) 0%, rgba(250, 251, 252, 0) 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    opacity: 1;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  #hero .cs-flex-group {
-    width: 80vw;
-    /* 464px - 562px */
-    max-width: clamp(29em, 60vw, 35.125em);
+  #hero-929 .cs-container {
+    width: 100%;
+    max-width: 80rem;
     margin: auto;
-    /* 60px - 220px */
-    margin-bottom: clamp(3.75em, 15.5vw, 13.75em);
-    box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    /* 48px - 64px */
+    gap: clamp(3rem, 6vw, 4rem);
+    position: relative;
   }
-  #hero .cs-topper {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: var(--primary);
-  }
-  #hero .cs-title {
+  #hero-929 .cs-content {
+    /* set text align to left if content needs to be left aligned */
     text-align: center;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* centers content horizontally, set to flex-start to left align */
+    align-items: center;
+  }
+  #hero-929 .cs-title {
+    /* 39px - 61px */
+    font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 68.5rem;
+    /* 8px - 16px */
+    margin: 0 0 clamp(0.5rem, 2vw, 1rem) 0;
     color: var(--bodyTextColorWhite);
+    position: relative;
   }
-  #hero .cs-text {
-    text-align: center;
-    /* 32px - 40px */
-    margin: 0 auto clamp(2rem, 4vw, 2.5rem) 0;
-    /* 40px - 48px */
-    margin-bottom: clamp(2.5rem, 4vw, 3rem);
-    color: var(--bodyTextColorWhite);
+  #hero-929 .cs-flex {
+    width: 100%;
+    /* removed at small desktop */
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
   }
-  #hero .cs-button-solid {
-    line-height: clamp(2.875em, 5.5vw, 3.5em);
-    height: initial;
-    margin-bottom: 1rem;
+  #hero-929 .cs-content-group {
+    width: 100%;
+    /* changes to 352px at small desktop */
+    max-width: 43.75rem;
   }
-  #hero .cs-button-transparent {
+  #hero-929 .cs-text {
+    font-size: var(--bodyFontSize);
+    line-height: 1.5em;
+    text-align: inherit;
+    width: 100%;
+    max-width: 40.625rem;
+    margin: 0 auto 1.75rem auto;
+    color: #f7f7f7;
+  }
+  #hero-929 .cs-button-solid {
     font-size: 1rem;
-    font-weight: 700;
     /* 46px - 56px */
-    line-height: clamp(2.875em, 5.5vw, 3.5em);
+    line-height: clamp(2.875rem, 5.5vw, 3.5rem);
     text-decoration: none;
-    width: 11.25rem;
-    /* 46px - 56px */
-    height: clamp(2.875em, 5.5vw, 3.5em);
-    margin: 0 0.5rem;
-    box-sizing: border-box;
-    padding: 0;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
     color: #fff;
-    background-color: transparent;
-    border: 1px solid var(--bodyTextColorWhite);
-    display: inline-flex;
+    min-width: 9.375rem;
+    padding: 0 2rem;
+    background-color: var(--primary);
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    /* prevents padding from adding to the width */
+    box-sizing: border-box;
+  }
+  #hero-929 .cs-button-solid:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background: #000;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 0.3s;
+  }
+  #hero-929 .cs-button-solid:hover:before {
+    width: 100%;
+  }
+  #hero-929 .cs-hours-group {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    position: relative;
-    z-index: 1;
+    row-gap: 1.25rem;
+    column-gap: 1.5rem;
   }
-  #hero .cs-button-transparent:before {
-    content: "";
-    background: #000;
-    opacity: 1;
+  #hero-929 .cs-header {
+    /* 20px - 25px */
+    font-size: clamp(1.25rem, 2vw, 1.5625rem);
+    line-height: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    color: var(--bodyTextColorWhite);
+    display: block;
+  }
+  #hero-929 .cs-hours {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  #hero-929 .cs-day {
+    font-size: 1rem;
+    line-height: 1.2em;
+    font-weight: bold;
+    color: var(--primary);
+    display: block;
+  }
+  #hero-929 .cs-time {
+    font-size: 1rem;
+    line-height: 1.5em;
+    margin: 0;
+    color: #f7f7f7;
+    display: block;
+  }
+  #hero-929 .cs-picture-group {
+    position: relative;
+  }
+  #hero-929 .cs-tagline {
+    /* 52px - 62px */
+    font-size: clamp(3.25rem, 7vw, 3.875rem);
+    font-family: "Mr Dafoe", cursive;
+    line-height: 0.9em;
+    max-width: 5ch;
+    margin: 0 auto -2.125rem;
+    color: var(--primary);
+    display: block;
+    transform: rotate(-14.36deg) translateX(-6.25rem);
+  }
+  #hero-929 .cs-picture {
+    width: 100%;
+    height: auto;
+    max-height: 37.375rem;
+    display: flex;
+    align-items: flex-end;
+  }
+  #hero-929 .cs-picture img {
+    width: 100%;
+    height: auto;
+  }
+  #hero-929 .cs-background {
+    width: 100%;
+    height: 100%;
     display: block;
     position: absolute;
-    /* so it sits on top of the border */
-    top: -1px;
-    right: -1px;
-    bottom: -1px;
-    left: -1px;
+    top: 0;
+    left: 0;
     z-index: -1;
-    /* this is what creates the grow affect on hover */
-    transform: scaleX(0);
-    transition: transform 0.3s;
-    transform-origin: left;
   }
-  #hero .cs-button-transparent:hover:before {
-    transform: scaleX(1);
-  }
-  #hero .cs-button-transparent .cs-img {
-    margin-right: 0.75rem;
+  #hero-929 .cs-background:before {
+    /* background color overlay */
+    content: "";
+    position: absolute;
     display: block;
+    height: 100%;
+    width: 100%;
+    background: #00433A;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  #hero-929 .cs-background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* Makes img tag act as a background image */
+    object-fit: cover;
   }
 }
 /* Tablet - 768px */
-@media only screen and (min-width: 48em) {
-  #hero {
-    /* 32px - 40px */
-    padding: 0 clamp(2em, 5vw, 2.5em);
-  }
-  #hero .cs-container {
-    padding: clamp(7em, 27.95vw, 17.5em) 0 clamp(9em, 30.95vw, 23.5em) 0;
-  }
-  #hero .cs-container:after {
-    /* Right Line */
-    content: "";
-    width: 1px;
-    height: 100%;
-    background: -moz-linear-gradient(top, rgba(250, 251, 252, 0) 0%, rgba(250, 251, 252, 0.5) 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(250, 251, 252, 0) 0%, rgba(250, 251, 252, 0.5) 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    opacity: 1;
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-  #hero .cs-button-solid {
-    margin-right: 1.25rem;
-    margin-bottom: 0;
+@media only screen and (min-width: 48rem) {
+  #hero-929 .cs-header {
+    text-align: left;
+    width: auto;
+    /* removed at small desktop */
+    max-width: 8ch;
   }
 }
-/* Desktop Parallax Effect - 1300px */
-@media only screen and (min-width: 81.25em) {
-  #hero {
-    background: url("/assets/images/landing.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* creates parallax effect on background image */
-    background-attachment: fixed;
-  }
-}
-/* Dark Mode */
-@media only screen and (min-width: 0em) {
-  body.dark-mode #hero .cs-background:before {
-    opacity: 0.8;
-  }
-}
-/*-- -------------------------- -->
-<---          Services          -->
-<--- -------------------------- -*/
-/* Mobile */
-@media only screen and (min-width: 0em) {
-  .services {
-    width: 90%;
-    max-width: 82.5em;
-    margin: auto;
-    margin-top: calc(-167 / 16 * 1em);
-    margin-bottom: 3.125em;
-    padding: 3.125em 1.25em;
-    background: #fff;
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
-    border-top: 0.375em solid var(--primary);
-    border-radius: 0.3125em;
-    position: relative;
-    z-index: 100;
-  }
-  .services .card {
-    width: 100%;
-    max-width: 22.3125em;
-    margin: auto;
-    margin-bottom: 3.125em;
-    display: block;
-  }
-  .services .card:last-of-type {
-    margin-bottom: 0;
-  }
-  .services .card picture {
-    width: 5.5em;
-    height: 5.5em;
-    margin: auto;
-    margin-bottom: 1.4375em;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .services .card picture img {
-    width: 3em;
-    height: 3em;
-  }
-  .services .card h2 {
-    font-size: 2em;
-    font-weight: 700;
-    line-height: 1.35em;
-    text-align: center;
-    margin-bottom: 0.65em;
-    color: #1a1a1a;
-  }
-  .services .card p {
-    line-height: 1.33333333em;
-    text-align: center;
-    width: 100%;
-    opacity: 0.7;
-  }
-}
-/* Inbetween */
-@media only screen and (min-width: 768px) {
-  .services {
-    font-size: min(1.8vw, 1em);
-    width: 98%;
-    display: flex;
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+  #hero-929 .cs-flex {
+    margin: 0;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: flex-end;
+    position: absolute;
+    /* 80px - 100px */
+    bottom: clamp(5rem, 8vw, 6.25rem);
+  }
+  #hero-929 .cs-content-group {
+    text-align: left;
+    width: 24vw;
+    max-width: 22rem;
+  }
+  #hero-929 .cs-hours-group {
+    flex-direction: column;
     align-items: flex-start;
   }
-  .services .card {
-    max-width: 20.3125em;
+  #hero-929 .cs-header {
+    max-width: 100%;
+  }
+  #hero-929 .cs-picture-group {
+    margin-top: -3.125rem;
+  }
+  #hero-929 .cs-tagline {
     margin: 0;
+    position: absolute;
+    /* changes at large desktop */
+    left: 3.75rem;
+    /* 90px - 130px */
+    top: clamp(5.625rem, 10vw, 8.125rem);
   }
 }
-/* Large Desktop */
-@media only screen and (min-width: 1300px) {
-  .services {
-    padding: 3.125em 5em;
+/* Large Desktop 1300px */
+@media only screen and (min-width: 81.25rem) {
+  #hero-929 .cs-hours-group {
+    max-width: 20rem;
+    flex-direction: row;
+    justify-content: flex-start;
   }
-  .services .card {
-    max-width: 22.3125em;
+  #hero-929 .cs-header {
+    width: 100%;
   }
-}
-/* Dark mode */
-@media only screen and (min-width: 0em) {
-  body.dark-mode #services {
-    background: var(--medium);
-  }
-  body.dark-mode #services picture {
-    background: var(--primaryDark);
-  }
-  body.dark-mode #services h2 {
-    font-weight: bold;
-    color: #fff;
+  #hero-929 .cs-tagline {
+    left: 1.625rem;
+    top: 8.125rem;
   }
 }
