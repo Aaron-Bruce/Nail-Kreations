@@ -2,191 +2,261 @@
 <---          Contact           -->
 <--- -------------------------- -*/
 
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-    #contact-983 {
-        padding: var(--sectionPadding);
-        position: relative;
+// /* Mobile - 360px */
+// @media only screen and (min-width: 0rem) {
+//     #contact-983 {
+//         padding: var(--sectionPadding);
+//         position: relative;
 
-        .cs-container {
-            width: 100%;
-            /* changes to 1064px at tablet */
-            max-width: (550/16rem);
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: (40/16rem);
-        }
+//         .cs-container {
+//             width: 100%;
+//             /* changes to 1064px at tablet */
+//             max-width: (550/16rem);
+//             margin: auto;
+//             display: flex;
+//             flex-direction: column;
+//             align-items: center;
+//             gap: (40/16rem);
+//         }
 
-        .cs-content {
-            /* set text align to left if content needs to be left aligned */
-            text-align: center;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            /* centers content horizontally, set to flex-start to left align */
-            align-items: center;
-        }
+//         .cs-content {
+//             /* set text align to left if content needs to be left aligned */
+//             text-align: center;
+//             width: 100%;
+//             display: flex;
+//             flex-direction: column;
+//             /* centers content horizontally, set to flex-start to left align */
+//             align-items: center;
+//         }
 
-        .cs-title {
-            color: var(--bodyTextColorWhite);
-        }
+//         .cs-title {
+//             color: var(--bodyTextColorWhite);
+//         }
 
-        .cs-form {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: (12/16rem);
-        }
+//         .cs-form {
+//             width: 100%;
+//             display: grid;
+//             grid-template-columns: repeat(12, 1fr);
+//             gap: (12/16rem);
+//         }
 
-        .cs-label {
-            font-size: (16/16rem);
-            line-height: 1.5em;
-            width: 100%;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-            gap: (8/16rem);
-            grid-column: span 12;
-        }
+//         .cs-label {
+//             font-size: (16/16rem);
+//             line-height: 1.5em;
+//             width: 100%;
+//             color: #fff;
+//             display: flex;
+//             justify-content: center;
+//             align-items: flex-start;
+//             flex-direction: column;
+//             gap: (8/16rem);
+//             grid-column: span 12;
+//         }
 
-        .cs-input {
-            font-family: inherit;
-            font-size: (16/16rem);
-            width: 100%;
-            height: (56/16rem);
-            padding-left: (24/16rem);
-            /* prevents padding and border from affecting height and width */
-            box-sizing: border-box;
-            color: #fff;
-            background-color: #484848;
-            border: none;
+//         .cs-input {
+//             font-family: inherit;
+//             font-size: (16/16rem);
+//             width: 100%;
+//             height: (56/16rem);
+//             padding-left: (24/16rem);
+//             /* prevents padding and border from affecting height and width */
+//             box-sizing: border-box;
+//             color: #fff;
+//             background-color: #484848;
+//             border: none;
 
-            &::placeholder {
-                padding-top: (16/16rem);
-                color: #fff;
-                opacity: 0.5;
-            }
-        }
+//             &::placeholder {
+//                 padding-top: (16/16rem);
+//                 color: #fff;
+//                 opacity: 0.5;
+//             }
+//         }
 
-        .cs-textarea {
-            height: (120/16rem);
-            margin-bottom: (32/16rem);
-            padding-top: (16/16rem);
-        }
+//         .cs-textarea {
+//             height: (120/16rem);
+//             margin-bottom: (32/16rem);
+//             padding-top: (16/16rem);
+//         }
 
-        .cs-wrapper {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            grid-column: span 12;
-        }
+//         .cs-wrapper {
+//             width: 100%;
+//             display: flex;
+//             justify-content: center;
+//             grid-column: span 12;
+//         }
 
-        .cs-button-solid {
-            font-size: (16/16rem);
-            /* 46px - 56px */
-            line-height: clamp(2.875rem, 5.5vw, 3.5rem);
-            text-decoration: none;
-            font-weight: 700;
-            text-align: center;
-            margin: 0;
-            color: #fff;
-            min-width: (150/16rem);
-            padding: 0 (32/16rem);
-            background-color: var(--primary);
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-            /* prevents padding from adding to the width */
-            box-sizing: border-box;
+//         .cs-button-solid {
+//             font-size: (16/16rem);
+//             /* 46px - 56px */
+//             line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+//             text-decoration: none;
+//             font-weight: 700;
+//             text-align: center;
+//             margin: 0;
+//             color: #fff;
+//             min-width: (150/16rem);
+//             padding: 0 (32/16rem);
+//             background-color: var(--primary);
+//             display: inline-block;
+//             position: relative;
+//             z-index: 1;
+//             /* prevents padding from adding to the width */
+//             box-sizing: border-box;
 
-            &:before {
-                content: "";
-                position: absolute;
-                height: 100%;
-                width: 0%;
-                background: #000;
-                opacity: 1;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                transition: width 0.3s;
-            }
+//             &:before {
+//                 content: "";
+//                 position: absolute;
+//                 height: 100%;
+//                 width: 0%;
+//                 background: #000;
+//                 opacity: 1;
+//                 top: 0;
+//                 left: 0;
+//                 z-index: -1;
+//                 transition: width 0.3s;
+//             }
 
-            &:hover {
-                &:before {
-                    width: 100%;
-                }
-            }
-        }
+//             &:hover {
+//                 &:before {
+//                     width: 100%;
+//                 }
+//             }
+//         }
 
-        .cs-submit {
-            border: none;
-            &:hover {
-                cursor: pointer;
-            }
-        }
+//         .cs-submit {
+//             border: none;
+//             &:hover {
+//                 cursor: pointer;
+//             }
+//         }
 
-        .cs-background {
-            width: 100%;
-            height: 100%;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
+//         .cs-background {
+//             width: 100%;
+//             height: 100%;
+//             display: block;
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             z-index: -1;
 
-            &:before {
-                /* background color overlay */
-                content: "";
-                position: absolute;
-                display: block;
-                height: 100%;
-                width: 100%;
-                background: #1a1a1a;
-                opacity: 0.9;
-                top: 0;
-                left: 0;
-                z-index: 1;
-            }
+//             &:before {
+//                 /* background color overlay */
+//                 content: "";
+//                 position: absolute;
+//                 display: block;
+//                 height: 100%;
+//                 width: 100%;
+//                 background: #1a1a1a;
+//                 opacity: 0.9;
+//                 top: 0;
+//                 left: 0;
+//                 z-index: 1;
+//             }
 
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                /* Makes img tag act as a background image */
-                object-fit: cover;
-            }
-        }
-    }
+//             img {
+//                 position: absolute;
+//                 top: 0;
+//                 left: 0;
+//                 height: 100%;
+//                 width: 100%;
+//                 /* Makes img tag act as a background image */
+//                 object-fit: cover;
+//             }
+//         }
+//     }
+// }
+
+// /* Tablet - 768px */
+// @media only screen and (min-width: 48rem) {
+//     #contact-983 {
+//         .cs-container {
+//             max-width: (1064/16rem);
+//         }
+
+//         .cs-label {
+//             grid-column: span 6;
+//         }
+
+//         .cs-message {
+//             grid-column: span 12;
+//         }
+
+//         .cs-wrapper {
+//             grid-column: span 12;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//         }
+//     }
+// }
+
+.booking-container {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    padding: 20px;
+    max-width: 800px; /* Or the width of your preference */
+    margin: auto;
 }
 
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-    #contact-983 {
-        .cs-container {
-            max-width: (1064/16rem);
-        }
-
-        .cs-label {
-            grid-column: span 6;
-        }
-
-        .cs-message {
-            grid-column: span 12;
-        }
-
-        .cs-wrapper {
-            grid-column: span 12;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    }
+.booking-day {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
+
+.booking-date {
+    margin: 0 0 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eeeeee;
+    color: #333333;
+}
+
+.time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start; /* Align to the start of the container */
+    padding: 10px 0;
+}
+
+.time-slot {
+    padding: 10px 16px;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+    min-width: 90px; /* Ensure consistent width for all buttons */
+    text-align: center; /* Center the text inside buttons */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.time-slot:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.see-more {
+    display: block;
+    width: 200px; /* Adjust the width as necessary */
+    padding: 10px 15px;
+    margin: 20px auto; /* Centers the button in the container */
+    font-size: 16px; /* Adjust the font size as necessary */
+    color: #ffffff; /* Text color */
+    background-color: #333333; /* Background color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Cursor changes to a pointer to indicate it's clickable */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.see-more:hover {
+    background-color: #555555; /* Slightly darker on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Larger shadow on hover for a "lifting" effect */
+}
+
+
                                 
