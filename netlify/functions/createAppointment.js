@@ -8,7 +8,7 @@ exports.handler = async (event) => {
   const { name, email, phone, service, message } = JSON.parse(event.body);
   const accessToken = process.env.SETMORE_ACCESS_TOKEN;  // Set this in your Netlify Environment Variables
   const staffKey = "751dea84-f3ef-4e98-b3e9-7402fe56e428";
-  const serviceKey = "1234";  // Assuming this is the service key you want to use
+  const serviceKey = "153f0f35-4e59-4f20-9640-3c5719219caa";  // Assuming this is the service key you want to use
 
   try {
     // Step 1: Create Customer in Setmore
@@ -30,8 +30,8 @@ exports.handler = async (event) => {
       staff_key: staffKey,
       service_key: serviceKey,
       customer_key: customerKey,
-      start_time: "2024-03-10T14:00:00Z", // Example start time, adjust as necessary
-      end_time: "2024-03-10T15:00:00Z",   // Example end time, adjust as necessary
+      start_time: "2024-03-25T14:00:00Z", // Example start time, adjust as necessary
+      end_time: "2024-03-25T15:00:00Z",   // Example end time, adjust as necessary
       // Include any additional appointment details required by Setmore
     }, {
       headers: {

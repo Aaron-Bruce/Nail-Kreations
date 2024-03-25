@@ -1,38 +1,25 @@
-document.getElementById('cs-form-1389').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
+document.addEventListener('DOMContentLoaded', function() {
+    // Event listener for 'Find Appointments' button click
+    document.getElementById('find-appointments').addEventListener('click', function() {
+        const timeSlotsContainer = document.getElementById('time-slots');
+        timeSlotsContainer.innerHTML = '';  // Clear existing time slots
+        
+        // Dummy data for available time slots
+        const availableTimeSlots = ['9:00 AM', '10:00 AM', '2:00 PM', '4:00 PM'];
 
-    const formData = {
-        name: document.getElementById('name-1389').value,
-        email: document.getElementById('email-1389').value,
-        phone: document.getElementById('phone-1389').value,
-        //service: document.getElementById('service-1389').value, // Ensure you have this field in your form
-        message: document.getElementById('message-1389').value,
-    };
+        // Create clickable widgets for each time slot
+        availableTimeSlots.forEach(timeSlot => {
+            const button = document.createElement('button');
+            button.textContent = timeSlot;
+            button.classList.add('time-slot');
+            button.onclick = () => {
+                // Redirect to the details page with the selected time slot as a query parameter
+                window.location.href = `/booking-details?time=${encodeURIComponent(timeSlot)}`;
+            };
+            timeSlotsContainer.appendChild(button);
+        });
 
-    // Using the correct endpoint for the Netlify function
-    fetch('/.netlify/functions/createAppointment', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Success:', data);
-        alert('Appointment booked successfully');
-        // Optionally, clear the form fields
-        document.getElementById('cs-form-1389').reset();
-        // Or redirect the user
-        // window.location.href = 'thank-you-page.html';
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        alert('Error booking appointment. Please try again later.');
+        timeSlotsContainer.style.display = 'block';  // Show the container with time
     });
 });
+

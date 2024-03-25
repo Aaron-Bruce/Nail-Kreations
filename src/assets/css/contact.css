@@ -203,6 +203,35 @@
     color: #fff;
     cursor: pointer;
   }
+  #contact-1389 .time-slot {
+    padding: 12px 20px;
+    margin: 5px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    /* Rounded corners */
+    font-weight: bold;
+    /* Make text slightly bolder */
+    color: #333;
+    /* Slightly darker text for better contrast */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition for background and shadow */
+    text-align: center;
+    /* Center the text */
+    display: inline-block;
+    /* Allows for text-align center to work */
+    min-width: 100px;
+    /* Minimum width to ensure buttons don't look too squished */
+  }
+  #contact-1389 .time-slot:hover,
+  #contact-1389 .time-slot:focus {
+    background-color: #e7e7e7;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow on hover/focus */
+    outline: none;
+    /* Remove outline on focus for cleaner look */
+  }
 }
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
