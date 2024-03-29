@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     throw new Error('Network response was not ok');
                 }
 
-                const data = await response.json();
+                const { data } = await response.json(); // Destructure the data object from the response
 
-                // Assuming the data is an array of time slots
-                data.forEach(time => {
+                // Loop through the slots array within the data object
+                data.slots.forEach(time => {
                     const timeSlot = document.createElement('button');
                     timeSlot.className = 'time-slot';
                     timeSlot.textContent = time;
