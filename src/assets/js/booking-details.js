@@ -1,86 +1,76 @@
-document.addEventListener('DOMContentLoaded', function() {
-    let lastLoadedDate = new Date(); // Start from today's date
+document.addEventListener('DOMContentLoaded', async function() {
+    let lastLoadedDate = new Date();
+    lastLoadedDate.setDate(lastLoadedDate.getDate() + 4);
 
-    async function loadDays(daysToLoad) {
+    const staff_key = '751dea84-f3ef-4e98-b3e9-7402fe56e428';
+    const service_key = 'bf74e196-ffa8-4e79-9ca4-b7dca8dceedb';
+
+    // Attempt to load stored data if it exists
+    const storedData = sessionStorage.getItem('bookingData');
+    if (storedData) {
+        const parsedData = JSON.parse(storedData);
+        // Ensure that parsedData is in the expected format (an array of objects)
+        const daysData = Array.isArray(parsedData) ? parsedData : [parsedData];
+        loadDays(daysData); // Function to load the booking details onto the page
+        sessionStorage.removeItem('bookingData'); // Clear the data to prevent it from being used again on refresh
+    } else {
+        // If no stored data, fetch new data for the next 10 days
+        const daysData = await fetchTimeSlots(lastLoadedDate, 10, staff_key, service_key);
+        // Ensure daysData is an array
+        loadDays(Array.isArray(daysData) ? daysData : [daysData]);
+    }
+
+    // Function to load days either from stored data or freshly fetched data
+    async function loadDays(daysData) {
         const container = document.getElementById('bookingContainer');
         if (!container) {
             console.error('Container element not found');
             return;
         }
 
-        for (let i = 0; i < daysToLoad; i++) {
+        daysData.forEach(day => {
             const bookingDay = document.createElement('div');
             bookingDay.className = 'booking-day';
 
             const bookingDate = document.createElement('h3');
             bookingDate.className = 'booking-date';
-            const dateText = lastLoadedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-            bookingDate.textContent = dateText;
+            bookingDate.textContent = day.date;
 
             const timeSlots = document.createElement('div');
             timeSlots.className = 'time-slots';
 
-            // Fetch available time slots from the API for lastLoadedDate
-            try {
-                const formattedDate = formatDateToDDMMYYYY(lastLoadedDate); // Format as YYYY-MM-DD
-                const response = await fetch(`/.netlify/functions/fetchAppointment`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        staff_key: '751dea84-f3ef-4e98-b3e9-7402fe56e428',      
-                        service_key: 'bf74e196-ffa8-4e79-9ca4-b7dca8dceedb',    
-                        selected_date: formattedDate,
-                        // other required fields here
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const { data } = await response.json(); // Destructure the data object from the response
-
-                // Loop through the slots array within the data object
-                data.slots.forEach(time => {
-                    const timeSlot = document.createElement('button');
-                    timeSlot.className = 'time-slot';
-                    timeSlot.textContent = time;
-                    timeSlots.appendChild(timeSlot);
-                });
-            } catch (error) {
-                console.error('Error fetching available time slots:', error);
-                // Handle error, maybe show a message to the user
-            }
+            day.slots.forEach(time => {
+                const timeSlot = document.createElement('button');
+                timeSlot.className = 'time-slot';
+                timeSlot.textContent = time;
+                timeSlots.appendChild(timeSlot);
+            });
 
             bookingDay.appendChild(bookingDate);
             bookingDay.appendChild(timeSlots);
-
             container.appendChild(bookingDay);
-
-            // Increment the lastLoadedDate for the next iteration
-            lastLoadedDate.setDate(lastLoadedDate.getDate() + 1);
-        }
+        });
     }
 
-    // Load the initial set of days
-    loadDays(10);
-
+    // "See More" button functionality
     const seeMoreBtn = document.getElementById('seeMoreBtn');
     if (seeMoreBtn) {
-        seeMoreBtn.addEventListener('click', function() {
-            loadDays(10); // Load 10 more days on each click
+        seeMoreBtn.addEventListener('click', async function() {
+            let daysData = [];
+            for (let i = 0; i < 5; i++) {
+                lastLoadedDate.setDate(lastLoadedDate.getDate() + 1);
+
+                try {
+                    const data = await fetchTimeSlots(lastLoadedDate, staff_key, service_key);
+                    daysData.push({ date: formatDateToDDMMYYYY(lastLoadedDate), slots: data.slots });
+                } catch (error) {
+                    console.error(`Error fetching time slots for ${formatDateToDDMMYYYY(targetDate)}:`, error);
+                    // Handle the error for this day, e.g., by continuing to the next day
+                }
+            }
+            loadDays(daysData);
         });
     } else {
         console.error('See More button not found');
     }
-
-    function formatDateToDDMMYYYY(date) {
-        let day = date.getDate().toString().padStart(2, '0');
-        let month = (date.getMonth() + 1).toString().padStart(2, '0'); // Month is zero-based
-        let year = date.getFullYear().toString();
-        return `${day}/${month}/${year}`;
-    }
-    
 });
