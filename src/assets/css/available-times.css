@@ -1,0 +1,117 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.booking-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  width: 100%; /* take full width of the container */
+  max-width: 800px; /* set a max-width to keep the content from stretching too wide */
+  margin: 0 auto; /* centers the container */
+  box-sizing: border-box; /* include padding in the width */
+}
+
+
+.service-title h2 {
+  text-align: center;
+  color: #333333; /* Adjust as needed */
+  margin-bottom: 30px; /* Space between title and time slots */
+}
+
+.booking-day {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.booking-date {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+  margin: 0 0 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+  color: #333333;
+  font-size: 1.25rem; /* Adjust as needed */
+}
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start; /* Align to the start of the container */
+  padding: 10px 0;
+}
+
+.time-slot {
+  padding: 10px 16px;
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 4px;
+  min-width: 90px; /* Ensure consistent width for all buttons */
+  text-align: center; /* Center the text inside buttons */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.time-slot:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.see-more {
+  display: block;
+  width: 200px; /* Adjust the width as necessary */
+  padding: 10px 15px;
+  margin: 20px auto; /* Centers the button in the container */
+  font-size: 16px; /* Adjust the font size as necessary */
+  color: #ffffff; /* Text color */
+  background-color: #333333; /* Background color */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor changes to a pointer to indicate it's clickable */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.see-more:hover {
+  background-color: #555555; /* Slightly darker on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Larger shadow on hover for a "lifting" effect */
+}
+
+/* This is the container that will cover the entire viewport */
+#loadingSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Use the entire viewport width */
+  height: 100vh; /* Use the entire viewport height */
+  z-index: 1000; /* High z-index to ensure it's above other content */
+  background: #f8f8f8; /* Optional: Add a semi-transparent overlay */
+}
+
+/* This is the actual spinner element, adjust the class name as necessary */
+.sk-double-bounce {
+  width: 100px; /* Increase the size of the spinner */
+  height: 100px; /* Should be the same as width for a circle */
+  /* If the spinner uses scaling animations, they may need to be adjusted too */
+}
+
+
+
+
+
+ 
+
+
+
+                              

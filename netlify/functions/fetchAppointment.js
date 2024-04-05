@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 exports.handler = async (event) => {
-    console.log("Incoming payload:", event.body);
+    //console.log("Incoming payload:", event.body);
     const accessToken = process.env.SETMORE_ACCESS_TOKEN; // Ensure your access token is securely stored in environment variables
     const headers = {
         'Content-Type': 'application/json',

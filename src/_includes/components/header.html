@@ -1,6 +1,6 @@
 {% block navbar %}
     {# Check if the URL contains '/booking-details'. Adjust as necessary. #}
-    {% if not ("/booking-details" in page.url) %}
+    {% if not ("/available-times" in page.url or "/booking-details" in page.url) %}
         <!-- ============================================ -->
         <!--                 Navigation                   -->
         <!-- ============================================ -->

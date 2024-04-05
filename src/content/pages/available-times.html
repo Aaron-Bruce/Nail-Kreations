@@ -1,0 +1,39 @@
+---
+title: 'Booking Details'
+description: 'Meta description for the page'
+preloadImg: 'https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/salon-bg-m.jpg'
+permalink: '/available-times'
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    
+    <link rel="stylesheet" href="/assets/css/available-times.css">
+{% endblock %}
+
+{% block body %}
+
+    <div class="booking-container" id="bookingContainer">
+        <div class="service-title">
+            <h2></h2>
+        </div>        
+    </div>
+    <button id="seeMoreBtn" class="see-more" style="display: none;">See More</button>
+    <div id="loadingSpinner" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+        <div class="simple-spinner" style="border: 6px solid rgba(0,0,0,.1); border-radius: 50%; border-top: 6px solid #3498db; width: 50px; height: 50px; animation: spin 2s linear infinite;"></div>
+    </div>
+    
+       
+                                
+{% endblock %}
+
+{% block scripts %}
+    <script src="/assets/js/available-times.js"></script>
+{% endblock %}

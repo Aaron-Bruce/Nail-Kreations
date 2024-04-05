@@ -1,7 +1,7 @@
 ---
-title: 'Booking Details'
-description: 'Meta description for the page'
-preloadImg: 'https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/salon-bg-m.jpg'
+title: 'Page title for <title> and OG tags'
+description: 'Description for <meta> and OG tags'
+preloadImg: '/assets/images/imagename.format'
 permalink: '/booking-details'
 ---
 
@@ -12,20 +12,17 @@ permalink: '/booking-details'
 {% endblock %}
 
 {% block body %}
-
-    <div class="booking-container" id="bookingContainer"></div>
-    <button id="seeMoreBtn" class="see-more">See More</button>
-
     <!-- ============================================ -->
     <!--                   Contact                    -->
     <!-- ============================================ -->
 
-    <!-- <section id="contact-983">
+    <section id="contact-983">
         <div class="cs-container">
             <div class="cs-content">
                 <span class="cs-topper">Contact Us</span>
                 <h2 class="cs-title">Make An Appointment</h2>
             </div>
+            <!--Form-->
             <form class="cs-form" id="cs-form-983" name="Contact Form" method="post">
                 <label class="cs-label">
                     Name
@@ -52,11 +49,14 @@ permalink: '/booking-details'
                 </div>
             </form>
         </div>
+        <!--Background Image-->
         <picture class="cs-background">
+            <!--Mobile Image-->
             <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/salon-bg-m.jpg">
+            <!--Tablet and above Image-->
             <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/salon-bg.jpg">
             <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/salon-bg.jpg" alt="hair salon" width="2500" height="770">
         </picture>
-    </section> -->
+    </section>
                                 
 {% endblock %}
