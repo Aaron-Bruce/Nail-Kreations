@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     buttons.forEach(function(button) {
         button.addEventListener('click', function() {
-            window.location.href = '/projects#services-1724';
+            window.location.href = '/projects#booking';
         });
     });
 });
