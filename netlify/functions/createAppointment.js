@@ -5,51 +5,55 @@ exports.handler = async (event) => {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
-  const { name, email, phone, service, message } = JSON.parse(event.body);
-  const accessToken = process.env.SETMORE_ACCESS_TOKEN;  // Set this in your Netlify Environment Variables
-  const staffKey = "751dea84-f3ef-4e98-b3e9-7402fe56e428";
-  const serviceKey = "153f0f35-4e59-4f20-9640-3c5719219caa";  // Assuming this is the service key you want to use
+  // Log the entire event body at the beginning to see what's being sent to the function
+  console.log("Received event body:", event.body);
+
+  // Destructure the necessary attributes from the request body
+  const { staffKey, serviceKey, customerKey, startTime, endTime } = JSON.parse(event.body);
+  const accessToken = process.env.SETMORE_ACCESS_TOKEN; // Set this in your Netlify Environment Variables
 
   try {
-    // Step 1: Create Customer in Setmore
-    const customerResponse = await axios.post('https://developer.setmore.com/api/v1/bookingapi/customer/create', {
-      first_name: name,
-      email_id: email,
-      cell_phone: phone,
-      // Add other customer details as needed
-    }, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-
-    const customerKey = customerResponse.data.data.customer.key; // Extracting the customer key from the response
-
-    // Step 2: Create Appointment with the new customer key, staff key, and service key
+    // Create Appointment with the provided keys and times
     const appointmentResponse = await axios.post('https://developer.setmore.com/api/v1/bookingapi/appointment/create', {
       staff_key: staffKey,
       service_key: serviceKey,
       customer_key: customerKey,
-      start_time: "2024-03-25T14:00:00Z", // Example start time, adjust as necessary
-      end_time: "2024-03-25T15:00:00Z",   // Example end time, adjust as necessary
-      // Include any additional appointment details required by Setmore
+      start_time: startTime,
+      end_time: endTime,
+      // Add any additional appointment details required by Setmore here
     }, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    // Assuming the appointment creation was successful and you want to return a success message
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: 'Customer created and appointment booked successfully' }),
-    };
+    // Check if the appointment creation was successful
+    if (appointmentResponse.data && appointmentResponse.data.data && appointmentResponse.data.data.appointment) {
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: 'Appointment booked successfully', appointmentDetails: appointmentResponse.data.data.appointment }),
+      };
+    } else {
+      throw new Error('Failed to create appointment');
+    }
   } catch (error) {
-    console.error('Error:', error.response ? error.response.data : error.message);
+    // Log the variables in the catch block
+    console.error('Error details:', {
+      staffKey: staffKey,
+      serviceKey: serviceKey,
+      customerKey: customerKey,
+      startTime: startTime,
+      endTime: endTime,
+      error: error.response ? error.response.data : error.message
+    });
+
+    const timeInfo = startTime ? ` for time ${startTime}` : ''; // Provides fallback text if startTime is undefined
     return {
-      statusCode: 500,
-      body: JSON.stringify({ message: 'Error creating customer/appointment' }),
+      statusCode: error.response ? error.response.status : 500,
+      body: JSON.stringify({
+        message: `Error creating appointment${timeInfo}`,
+        error: error.response ? error.response.data : error.message,
+      }),
     };
   }
 };
-

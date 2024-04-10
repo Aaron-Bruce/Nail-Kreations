@@ -91,7 +91,7 @@
     position: absolute;
     height: 100%;
     width: 0%;
-    background: #000;
+    background: var(--secondary);
     opacity: 1;
     top: 0;
     left: 0;
@@ -163,6 +163,7 @@
   #hero-929 .cs-picture img {
     width: 100%;
     height: auto;
+    margin-bottom: -6.4vw;
   }
   #hero-929 .cs-background {
     width: 100%;
@@ -180,7 +181,7 @@
     display: block;
     height: 100%;
     width: 100%;
-    background: #00433A;
+    background: var(--secondary);
     top: 0;
     left: 0;
     z-index: 1;
@@ -202,6 +203,12 @@
     width: auto;
     /* removed at small desktop */
     max-width: 8ch;
+  }
+
+  #hero-929 .cs-picture img {
+    width: 100%;
+    height: auto;
+    margin-bottom: -50px;
   }
 }
 /* Small Desktop - 1024px */

@@ -1,0 +1,18 @@
+name: Refresh Access Token and Redeploy
+
+on:
+  schedule:
+    # Schedule to run every 2 hours
+    - cron: '0 */2 * * *'
+
+jobs:
+  refresh_token_and_redeploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Invoke Netlify Function to Refresh Token
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: 'https://your-netlify-site/.netlify/functions/updateAccessToken'
+        method: 'POST'
+        contentType: 'application/json'
+        data: '{"refreshToken": "r1/2814c67e94VKlllBSSCwZt2Y1aaLDvWdqCITvUdD3VPCd"}'

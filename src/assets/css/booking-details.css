@@ -56,13 +56,13 @@
     padding-left: 1.5rem;
     /* prevents padding and border from affecting height and width */
     box-sizing: border-box;
-    color: #fff;
-    background-color: #484848;
+    color: #0a0a0a;
+    background-color: #f7f7f7;
     border: none;
   }
   #contact-983 .cs-input::placeholder {
     padding-top: 1rem;
-    color: #fff;
+    color: #0a0a0a;
     opacity: 0.5;
   }
   #contact-983 .cs-textarea {
@@ -99,7 +99,7 @@
     position: absolute;
     height: 100%;
     width: 0%;
-    background: #000;
+    background: var(--secondary);
     opacity: 1;
     top: 0;
     left: 0;
@@ -131,8 +131,8 @@
     display: block;
     height: 100%;
     width: 100%;
-    background: #1a1a1a;
-    opacity: 0.9;
+    background: var(--secondary);
+    opacity: 1;
     top: 0;
     left: 0;
     z-index: 1;
@@ -165,4 +165,33 @@
     align-items: center;
   }
 }
+
+/* Full Page Spinner Styles */
+.full-page-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* High z-index to ensure it's on top */
+}
+
+.full-page-spinner .simple-spinner {
+  border: 6px solid rgba(0,0,0,0.1);
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
                                 

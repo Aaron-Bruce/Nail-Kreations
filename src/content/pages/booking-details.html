@@ -12,6 +12,11 @@ permalink: '/booking-details'
 {% endblock %}
 
 {% block body %}
+
+    <div id="bookingSpinner" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+        <div class="simple-spinner" style="border: 6px solid rgba(0,0,0,.1); border-radius: 50%; border-top: 6px solid #3498db; width: 50px; height: 50px; animation: spin 2s linear infinite;"></div>
+    </div>
+
     <!-- ============================================ -->
     <!--                   Contact                    -->
     <!-- ============================================ -->
@@ -25,27 +30,26 @@ permalink: '/booking-details'
             <!--Form-->
             <form class="cs-form" id="cs-form-983" name="Contact Form" method="post">
                 <label class="cs-label">
-                    Name
-                    <input class="cs-input" required type="text" id="name-587-983" name="name" placeholder="Name">
+                    First Name
+                    <input class="cs-input" required type="text" id="name-587-983" name="name" placeholder="First Name">
                 </label>
                 <label class="cs-label">
-                    Phone
-                    <input class="cs-input" required type="text" id="phone-587-983" name="phone" placeholder="Phone">
+                    Last Name
+                    <input class="cs-input" required type="text" id="last-name-587-983" name="phone" placeholder="Last Name">
                 </label>
                 <label class="cs-label">
                     Email
                     <input class="cs-input" required type="text" id="email-587-983" name="email" placeholder="Email">
                 </label>
                 <label class="cs-label">
-                    How did you hear about us?
-                    <input class="cs-input" required type="text" id="hear-587-983" name="heat" placeholder="Google">
+                   Phone
+                    <input class="cs-input" required type="text" id="phone-587-983" name="heat" placeholder="Phone">
                 </label>
-                <label class="cs-label cs-message">
-                    Message
-                    <textarea class="cs-input cs-textarea" required name="Message" id="message-587-983" placeholder="Write message..."></textarea>
+                <label class="cs-label cs-message">Additional notes
+                    <textarea class="cs-input cs-textarea" required name="Message" id="message-587-983" placeholder="Write message... i.e. French Tip, Nail Art etc."></textarea>
                 </label>
                 <div class="cs-wrapper">
-                    <button class="cs-button-solid cs-submit" type="submit">Send Message</button>
+                    <button class="cs-button-solid cs-submit" type="submit">Book Appointment</button>
                 </div>
             </form>
         </div>
@@ -58,5 +62,76 @@ permalink: '/booking-details'
             <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/salon-bg.jpg" alt="hair salon" width="2500" height="770">
         </picture>
     </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#cs-form-983').on('submit', function(e) {
+                e.preventDefault();
+    
+                // Show full page spinner
+                $('body').append('<div class="full-page-spinner" id="fullPageSpinner"><div class="simple-spinner"></div></div>');
+    
+                // Collect form data
+                const formData = {
+                    firstName: $('#name-587-983').val(),
+                    lastName: $('#last-name-587-983').val(),
+                    email: $('#email-587-983').val(),
+                    phone: $('#phone-587-983').val(),
+                };
+    
+                // Create Customer (Step 1)
+                $.ajax({
+                    type: 'POST',
+                    url: '/.netlify/functions/createCustomer',
+                    data: JSON.stringify(formData),
+                    contentType: 'application/json',
+                    success: function(response) {
+                        const customerData = JSON.parse(response);
+                        const customerKey = customerData.customer.key;
+    
+                        // Prepare data for appointment creation (Step 2)
+                        const appointmentData = {
+                            staffKey: '751dea84-f3ef-4e98-b3e9-7402fe56e428', // Example staffKey
+                            serviceKey: new URLSearchParams(window.location.search).get('key'), // Extracted from URL
+                            customerKey: customerKey,
+                            startTime: new URLSearchParams(window.location.search).get('start'), // Extracted from URL
+                            endTime: new URLSearchParams(window.location.search).get('end'), // Extracted from URL
+                        };
+    
+                        // Create Appointment
+                        $.ajax({
+                            type: 'POST',
+                            url: '/.netlify/functions/createAppointment',
+                            data: JSON.stringify(appointmentData),
+                            contentType: 'application/json',
+                            success: function() {
+                                alert('Appointment created successfully!');
+                                window.location.href = '/';
+                            },
+                            error: function(err) {
+                                console.error('Error creating appointment:', err);
+                                // Remove spinner and possibly show error message
+                                $('#fullPageSpinner').remove();
+                                alert('Failed to create the appointment.');
+                            }
+                        });
+                    },
+                    error: function(err) {
+                        console.error('Error creating customer:', err);
+                        // Remove spinner and possibly show error message
+                        $('#fullPageSpinner').remove();
+                        alert('Failed to create the customer.');
+                    }
+                });
+            });
+        });
+    </script>
+    
+    
+        
+        
+
+
                                 
 {% endblock %}

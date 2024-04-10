@@ -14,86 +14,58 @@ permalink: 'contact/'
 {% block body %}
 
     <!-- ============================================ -->
-    <!--                    LANDING                   -->
+    <!--                   Banner                     -->
     <!-- ============================================ -->
 
-    <section id="int-hero">
-        <h1 id="home-h">Contact Us</h1>
-        <picture>
-            <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.jpg">
-            <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
-            <img aria-hidden="true" decoding="async" src="/assets/images/cabinets2.jpg" alt="kitchen cabinets" loading="eager" width="2500" height="1667">
-        </picture>
-    </section>
-
-    <!-- ============================================ -->
-    <!--                   Contact                    -->
-    <!-- ============================================ -->
-
-    <section id="contact-1389">
+    <div id="banner-558">
         <div class="cs-container">
-            <div class="cs-content">
-                <span class="cs-topper">Contact Us</span>
-                <h2 class="cs-title">Get in Touch</h2>
-                <p class="cs-text">
-                    We are a team of passionate and creative individuals dedicated to crafting captivating designs that leave a lasting impression.
-                </p>
-                <ul class="cs-ul">
-                    <li class="cs-li">
-                        <picture class="cs-icon-wrapper">
-                            <img aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-76.svg" alt="phone icon" class="cs-icon" width="40" height="40" decoding="async">
-                        </picture>
-                        <div class="cs-flex-group">
-                            <span class="cs-header">Phone</span>
-                            <a href="tel:888-4565-789
-                            " class="cs-link">+1 (888) 4565 789
-                            </a>
-                        </div>
-                    </li>
-                    <li class="cs-li">
-                        <picture class="cs-icon-wrapper">
-                            <img aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mail-76.svg" alt="address icon" class="cs-icon" width="40" height="40" decoding="async">
-                        </picture>
-                        <div class="cs-flex-group">
-                            <span class="cs-header">Email</span>
-                            <a href="mailto:Email@stitch.com" class="cs-link">Email@stitch.com</a>
-                        </div>
-                    </li>
-                    <li class="cs-li">
-                        <picture class="cs-icon-wrapper">
-                            <img aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/pin-76.svg" alt="address icon" class="cs-icon" width="40" height="40" decoding="async">
-                        </picture>
-                        <div class="cs-flex-group">
-                            <span class="cs-header">Address</span>
-                            <a href="" class="cs-link">2553 Woodbridge Lane, Boston Ware 120</a>
-                        </div>
-                    </li>
-                </ul>
+            <span class="cs-int-title">Contact Us</span>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">Home</a>
+                <a href="" class="cs-link cs-active">Contact Us</a>
             </div>
-            <!--Form-->
-            <form class="cs-form" id="cs-form-1389" name="Contact Form" method="post">
-                <h3 class="cs-h3">Make Appointment</h3>
-                <label class="cs-label">
-                    Service
-                    <select class="cs-input" id="service-1389" name="service" required>
-                        <option value="">Select a Service</option>
-                        <option value="service1Key">Service 1</option>
-                        <option value="service2Key">Service 2</option>
-                        <!-- Additional services go here -->
-                    </select>
-                </label>
-                <label class="cs-label">
-                    Choose Date
-                    <input class="cs-input" type="date" id="appointment-date-1389" name="appointmentDate" required>
-                </label>                
-                <!-- <button class="cs-button-solid cs-submit" type="submit" id="find-appointments">Find Appointments</button> -->
-                <button type="button" class="cs-button-solid" id="find-appointments">Find Appointments</button>
-            </form>
         </div>
-        <!-- Container for displaying time slots -->
-        <div id="time-slots" style="display: none;">
-                
-        </div>
-    </section>
+    </div>
+
+
+    <!-- ============================================ -->
+    <!--                   Stats                      -->
+    <!-- ============================================ -->
+
+    <!-- No headers, so no section tag -->
+    <div id="contact-strip-324">
+        <ul class="cs-stat-group">
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <img class="cs-icon" src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/phone-grey.svg" alt="icon" width="35" height="40" loading="lazy" decoding="async" aria-hidden="true">
+                </picture>
+                <div class="cs-flex-group">
+                    <span class="cs-header">Phone</span>
+                    <a href="tel:555-456-7899" class="cs-link">+1 (555) 456 7899</a>
+                    <a href="tel:555-456-7899" class="cs-link">+1 (555) 456 7899</a>
+                </div>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <img class="cs-icon" src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/pin-grey.svg" alt="icon" width="40" height="35" loading="lazy" decoding="async" aria-hidden="true">
+                </picture>
+                <div class="cs-flex-group">
+                    <span class="cs-header">Address</span>
+                    <a href="" class="cs-link">123 Fake St, STE 100 <br> Somewhere, FL 98755</a>
+                </div>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-picture">
+                    <img class="cs-icon" src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/clock-grey.svg" alt="icon" width="40" height="40" loading="lazy" decoding="async" aria-hidden="true">
+                </picture>
+                <div class="cs-flex-group">
+                    <span class="cs-header">Open Hours</span>
+                    <span class="cs-hours">Monday To Saturday</span>
+                    <span class="cs-hours">9:00 AM - 10:30 PM</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+                                
                                 
 {% endblock %}
