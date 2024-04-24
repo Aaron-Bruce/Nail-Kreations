@@ -116,6 +116,27 @@ eleventyNavigation:
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </section>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var calendlySection = document.getElementById('booking');
+        
+            var observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                var script = document.createElement('script');
+                script.src = 'https://assets.calendly.com/assets/external/widget.js';
+                script.async = true;
+                document.body.appendChild(script);
+                observer.unobserve(entry.target);
+                }
+            });
+            }, {rootMargin: "0px 0px -200px 0px"});
+        
+            observer.observe(calendlySection);
+        });
+    </script>
+      
+
     {% include 'components/cta.html' %}
 
 {% endblock %}
