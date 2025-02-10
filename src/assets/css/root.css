@@ -581,6 +581,22 @@ html {
   #cs-navigation .cs-button-solid:hover:before {
     width: 100%;
   }
+  #cs-navigation .cs-social-link {
+    text-decoration: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #cs-navigation .cs-social-icon {
+    width: 2.5rem;
+    height: auto;
+    opacity: 0.6;
+    display: block;
+  }
 }
 /*-- -------------------------- -->
   <---   Interior Page Header     -->
